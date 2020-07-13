@@ -8,17 +8,17 @@ let store = createStore(rootReducer);
 
 describe("rootReducer", () => {
 
-  test('Check that initial state of ticketListReducer matches root reducer', () => {
-    const action = {
-      type: c.ADD_TICKET,
-      names: 'Ryan & Aimen',
-      location: '4b',
-      issue: 'Redux action is not working correctly.',
-      id: 1
-    }
-    store.dispatch(action);
-    expect(store.getState().masterTicketList).toEqual(ticketListReducer(undefined, action));
-  });
+  // test('Check that initial state of ticketListReducer matches root reducer', () => {
+  //   const action = {
+  //     type: c.ADD_TICKET,
+  //     names: 'Ryan & Aimen',
+  //     location: '4b',
+  //     issue: 'Redux action is not working correctly.',
+  //     id: 1
+  //   }
+  //   store.dispatch(action);
+  //   expect(store.getState().masterTicketList).toEqual(ticketListReducer(undefined, action));
+  // });
   
   test('Check that initial state of formVisibleReducer matches root reducer', () => {
     const action = {
