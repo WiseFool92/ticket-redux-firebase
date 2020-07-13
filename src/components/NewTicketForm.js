@@ -22,14 +22,14 @@ function NewTicketForm(props){
       timeOpen: firestore.FieldValue.serverTimestamp()
     }
   );
+  return (
+    <React.Fragment>
+      <ReusableForm 
+        formSubmissionHandler={addTicketToFirestore}
+        buttonText="Help!" />
+    </React.Fragment>
+  );
 }
-return (
-  <React.Fragment>
-    <ReusableForm 
-      formSubmissionHandler={addTicketToFirestore}
-      buttonText="Help!" />
-  </React.Fragment>
-);
 
 NewTicketForm.propTypes = {
   onNewTicketCreation: PropTypes.func
