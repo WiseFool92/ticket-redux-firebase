@@ -38,7 +38,6 @@ function TicketList(props){
 }
 
 TicketList.propTypes = {
-  // ticketList: PropTypes.object,
   onTicketSelection: PropTypes.func
 };
 

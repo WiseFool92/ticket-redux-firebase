@@ -52,9 +52,7 @@ class TicketControl extends React.Component {
   }
 
   handleDeletingTicket = (id) => {
-    const { dispatch } = this.props;
-    const action = a.deleteTicket(id);
-    dispatch(action);
+    this.props.firestore.delete({collection: 'tickets', doc: id});
     this.setState({selectedTicket: null});
   }
 
@@ -86,28 +84,23 @@ class TicketControl extends React.Component {
       currentlyVisibleState = <NewTicketForm onNewTicketCreation={this.handleAddingNewTicketToList} />;
       buttonText = "Return to Ticket List";
     } else {
-      currentlyVisibleState = <TicketList ticketList={this.props.masterTicketList} onTicketSelection={this.handleChangingSelectedTicket} />;
+      currentlyVisibleState = <TicketList ticketList={this.props} onTicketSelection={this.handleChangingSelectedTicket} />;
       buttonText = "Add Ticket";
     }
     return (
-      <React.Fragment>
+      <>
         {currentlyVisibleState}
         <button onClick={this.handleClick}>{buttonText}</button>
-      </React.Fragment>
+      </>
     );
   }
   
 }
 
-
 const mapStateToProps = state => {
   return {
     formVisibleOnPage: state.formVisibleOnPage
   }
-};
-
-TicketControl.propTypes = {
-  masterTicketList: PropTypes.object
 };
 
 TicketControl = connect(mapStateToProps)(TicketControl);

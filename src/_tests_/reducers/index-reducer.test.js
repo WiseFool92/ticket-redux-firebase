@@ -38,7 +38,7 @@ describe("rootReducer", () => {
 
   test('Should return default state if not action type is recognized', () => {
     expect(rootReducer({}, { type: null })).toEqual({
-      masterTicketList: {},
+      // masterTicketList: {},
       formVisibleOnPage: false
     });
   });
