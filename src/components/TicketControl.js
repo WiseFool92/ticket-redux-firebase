@@ -20,26 +20,26 @@ class TicketControl extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.waitTimeUpdateTimer = setInterval(() =>
-  //     this.updateTicketElapsedWaitTime(),
-  //   60000
-  //   );
-  // }
+  componentDidMount() {
+    this.waitTimeUpdateTimer = setInterval(() =>
+      this.updateTicketElapsedWaitTime(),
+    60000
+    );
+  }
 
-  // componentWillUnmount(){
-  //   console.log("component unmounted!");
-  //   clearInterval(this.waitTimeUpdateTimer);
-  // }
+  componentWillUnmount(){
+    console.log("component unmounted!");
+    clearInterval(this.waitTimeUpdateTimer);
+  }
 
-  // updateTicketElapsedWaitTime = () => {
-  //   const { dispatch } = this.props;
-  //   Object.values(this.props).forEach(ticket => {
-  //     const newFormattedWaitTime = ticket.timeOpen.fromNow(true);
-  //     const action = a.updateTime(ticket.id, newFormattedWaitTime);
-  //     dispatch(action);
-  //   });
-  // }
+  updateTicketElapsedWaitTime = () => {
+    const { dispatch } = this.props;
+    Object.values(this.props).forEach(ticket => {
+      const newFormattedWaitTime = ticket.timeOpen.fromNow(true);
+      const action = a.updateTime(ticket.id, newFormattedWaitTime);
+      dispatch(action);
+    });
+  }
 
   handleClick = () => {
     if (this.state.selectedTicket != null) {
