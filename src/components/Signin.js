@@ -17,8 +17,16 @@ function Signin(){
     event.preventDefault();
     const email = event.target.signinEmail.value;
     const password = event.target.signinPassword.value;
-    firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
       console.log('Successfully signed in!');
+    }).catch(function(error) {
+      console.log(error.message);
+    });
+  }
+
+  function doSignOut() {
+    firebase.auth().signOut().then(function() {
+      console.log('Successfully signed out!');
     }).catch(function(error) {
       console.log(error.message);
     });
@@ -51,6 +59,8 @@ function Signin(){
           placeholder='Password' />
         <button type='submit'>Sign in</button>
       </form>
+      <h1>Sign Out</h1>
+      <button onClick={doSignOut}>Sign out</button>
     </>
   );
 }
